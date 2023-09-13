@@ -37,6 +37,10 @@ public class HomeController : Controller
 
     [HttpPost("process")]
     public IActionResult Process(User newUser) {
+        if(ModelState.IsValid){
         return RedirectToAction("Result",newUser);
+        }else{
+            return View("Index");
+        }
     }
 }
